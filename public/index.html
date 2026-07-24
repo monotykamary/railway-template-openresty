@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OpenResty on Railway</title>
+  <style>
+    :root { color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: radial-gradient(circle at top, #183b32, #07110e 55%); color: #e9fff7; }
+    main { width: min(760px, calc(100% - 2rem)); padding: 2.5rem; border: 1px solid #2f6657; border-radius: 20px; background: rgba(8, 28, 22, .88); box-shadow: 0 24px 80px rgba(0, 0, 0, .35); }
+    .status { display: inline-block; padding: .35rem .75rem; border-radius: 999px; background: #123f31; color: #7fffc4; font-weight: 700; }
+    h1 { margin: 1rem 0 .5rem; font-size: clamp(2rem, 6vw, 4rem); letter-spacing: -.04em; }
+    p { color: #b8d8ce; line-height: 1.7; }
+    nav { display: flex; flex-wrap: wrap; gap: .75rem; margin: 1.5rem 0; }
+    a { color: #07110e; background: #65e6ae; padding: .7rem 1rem; border-radius: 10px; text-decoration: none; font-weight: 750; }
+    pre { min-height: 8rem; overflow: auto; padding: 1rem; border-radius: 12px; background: #030806; color: #9fffd0; }
+  </style>
+</head>
+<body>
+  <main>
+    <span class="status">OpenResty is running</span>
+    <h1>Programmable web infrastructure with Lua</h1>
+    <p>This Railway starter includes health checks, JSON access logs, security headers, and sample Lua endpoints.</p>
+    <nav>
+      <a href="/api/hello">Hello API</a>
+      <a href="/health">Health check</a>
+    </nav>
+    <pre id="response">Loading /api/hello…</pre>
+  </main>
+  <script>
+    fetch('/api/hello')
+      .then(response => response.json())
+      .then(data => { document.querySelector('#response').textContent = JSON.stringify(data, null, 2); })
+      .catch(error => { document.querySelector('#response').textContent = error.message; });
+  </script>
+</body>
+</html>
