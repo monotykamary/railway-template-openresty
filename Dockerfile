@@ -1,4 +1,4 @@
-FROM openresty/openresty:1.31.1.1-4-bookworm-fat@sha256:8af38c16d14f8a96660f60faec444359b848097fe13746428155954197111c6f
+FROM openresty/openresty:1.31.1.1-5-bookworm-fat@sha256:95acfebf0811609688858004183e2ead7133f883855f6c07b2d064cbbdde26f2
 
 COPY openresty.conf.template /etc/nginx/templates/default.conf.template
 COPY environment.main /etc/nginx/conf.d/environment.main
