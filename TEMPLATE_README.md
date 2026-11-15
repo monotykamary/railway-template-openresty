@@ -17,7 +17,7 @@ Hosting OpenResty provides an event-driven server that can execute Lua directly 
 ## Dependencies for OpenResty Hosting
 
 - OpenResty 1.31.8.1
-- Official Docker packaging revision 2 on Debian Bookworm
+- Official Docker packaging revision 0 on Debian Bookworm
 - LuaJIT and bundled OpenResty modules
 - OPM and LuaRocks package managers
 
