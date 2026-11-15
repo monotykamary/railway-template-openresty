@@ -2,7 +2,7 @@
 
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/openresty?referralCode=ZqgrJ0)
 
-A programmable OpenResty starter for Railway, built on a pinned official image. It includes a polished landing page, Lua JSON APIs, a health endpoint, structured access logs, security headers, and Railway-aware port handling.
+A programmable OpenResty starter for Railway, built on the pinned official `1.31.8.1-0-bookworm-fat` image. It includes a polished landing page, Lua JSON APIs, a health endpoint, structured access logs, security headers, and Railway-aware port handling.
 
 ## Included endpoints
 
@@ -56,3 +56,7 @@ The starter disables server-version tokens, sets baseline browser security heade
 ## License
 
 The starter configuration and sample application are MIT licensed. OpenResty and bundled dependencies retain their upstream licenses and trademarks.
+
+## Repeatable product validation
+
+`python3 scripts/smoke.py` reads `BASE_URL` and `SMOKE_PHASE` (`boot`, `upgrade`, or `redeploy`). It exercises Lua JSON request/response behavior and checks the bundled image hash across phases. The starter is stateless; this is not a database persistence claim.
